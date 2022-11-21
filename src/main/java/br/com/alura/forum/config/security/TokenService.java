@@ -23,7 +23,7 @@ public class TokenService {
 		
 		Usuario logado = (Usuario) authentication.getPrincipal();
 		Date hoje = new Date();
-		Date dataExpiracao = new Date(hoje.getTime() + expiration);
+		Date dataExpiracao = new Date(hoje.getTime() + Long.parseLong(expiration));
 		
 		return Jwts.builder().setIssuer("API do Forum da Alura")
 				.setSubject(logado.getId().toString())
