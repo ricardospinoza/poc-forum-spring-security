@@ -50,8 +50,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.GET, "/topicos/*").permitAll()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll() //em produção tirar o permite all
-		//.antMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()       
-		//.antMatchers(HttpMethod.GET, "/v3/api-docs/**").permitAll()		
+		
 		//--
 		.anyRequest().authenticated()
 		.and().csrf().disable() //desabilita tipo de ataque pq vamos usar autenticação de token e não precisa o spring ver isto
@@ -65,6 +64,8 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		//Configurações de recursos estaticos, requisiçõesp para arquivos, javascript, imagens, etc.. para o frontend 
+		web.ignoring().antMatchers("/**.html", "/v2/api-docs", "/webjars/**", "/configuration/**", "/swagger-resources/**");
+		
 	}
 	
 	
