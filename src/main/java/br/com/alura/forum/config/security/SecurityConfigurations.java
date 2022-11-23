@@ -49,7 +49,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.GET, "/topicos").permitAll()
 		.antMatchers(HttpMethod.GET, "/topicos/*").permitAll()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
-		//.antMatchers(HttpMethod.GET, "/actuator/**").permitAll() //em produção tirar o permite all
+		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll() //em produção tirar o permite all
 		//.antMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()       
 		//.antMatchers(HttpMethod.GET, "/v3/api-docs/**").permitAll()		
 		//--
